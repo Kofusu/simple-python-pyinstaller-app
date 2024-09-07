@@ -1,15 +1,16 @@
 node {
-    docker.image('python:3.8').inside
-    stage("Build & Test") {
-        try {
-            sh "python3 sources/test_calc.py"
-        } catch {
-            echo "Error occurred during Build & Test: ${e.getMessage()}"
-            error("Build & Test stage failed.")
+    docker.image('python:3.8').inside {
+        stage("Build & Test") {
+            try {
+                sh "python3 sources/test_calc.py"
+            } catch (Exception e) {
+                echo "Error occurred during Build & Test: ${e.getMessage()}"
+                error("Build & Test stage failed.")
+            }
         }
-    }
 
-    stage("Deploy") {
-        echo "Not yet Implemented"
+        stage("Deploy") {
+            echo "Not yet Implemented"
+        }
     }
 }
