@@ -1,8 +1,8 @@
 node {
-    docker.image('python:3.8').inside {
+    docker.image('python:3.8').inside("-v /home/Desktop/Projects/simple-python-pyinstaller-app:/project") {
         stage("Build & Test") {
             try {
-                sh "cd /home/Desktop/Projects/simple-python-pyinstaller-app"
+                sh "cd /project/"
                 sh "pwd"
                 sh "ls -al"
                 sh "python3 sources/test_calc.py"
