@@ -1,20 +1,14 @@
-node {
-    docker.image('python:3.8').inside("-v /home/Desktop/Projects/simple-python-pyinstaller-app:/project") {
-        stage("Build & Test") {
-            try {
-                sh "cd /project/"
-                sh "pwd"
-                sh "ls -al"
-                sh "python3 sources/test_calc.py"
-            } catch (Exception e) {
-                echo "Error occurred during Build & Test: ${e.getMessage()}"
-                error("Build & Test stage failed.")
-            }
+pipeline {
+    agent {
+        docker {
+            image 'python:3.8' 
         }
-
-        stage("Deploy") {
-            sh "echo Not yet Implemented"
-            sh "pwd"
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'python3 sources/test_calc.py'
+            }
         }
     }
 }
