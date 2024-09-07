@@ -1,6 +1,6 @@
 node {
     stage("Build & Test") {
-        python3 sources/test-calc.py
+        python3 sources/test_calc.py
     }
 
     stage("Deploy") {
