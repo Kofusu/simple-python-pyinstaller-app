@@ -1,13 +1,15 @@
-pipeline {
-    agent {
-        docker {
-            image 'python:3.8' 
-        }
-    }
-    stages {
-        stage('Build') { 
-            steps {
+node {
+    // Use the Docker image
+    docker.image('python:3.8').inside {
+        
+        // Stage: Build
+        stage('Build') {
+            try {
+                // Run the Python script
                 sh 'python3 sources/test_calc.py'
+            } catch (Exception e) {
+                echo "Error occurred during Build: ${e.getMessage()}"
+                error("Build stage failed.")
             }
         }
     }
