@@ -1,6 +1,7 @@
 node {
     stage("Build & Test") {
         try {
+            sh 'apt-get update && apt-get install -y python3'
             sh "python3 sources/test_calc.py"
         } catch {
             echo "Error occurred during Build & Test: ${e.getMessage()}"
