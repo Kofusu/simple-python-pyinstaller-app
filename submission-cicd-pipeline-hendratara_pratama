@@ -1,4 +1,5 @@
 node {
+    sh "cd /home/Desktop/Projects/simple-python-pyinstaller-app"
     docker.image('python:3.8').inside {
         stage("Build & Test") {
             try {
