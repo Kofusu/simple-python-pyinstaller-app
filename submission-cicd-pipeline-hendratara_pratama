@@ -1,0 +1,9 @@
+Node {
+    stage("Build & Test") {
+        python3 sources/test-calc.py
+    }
+
+    stage("Deploy") {
+        echo "Not yet Implemented"
+    }
+}
