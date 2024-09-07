@@ -1,8 +1,8 @@
 node {
-    sh "cd /home/Desktop/Projects/simple-python-pyinstaller-app"
     docker.image('python:3.8').inside {
         stage("Build & Test") {
             try {
+                sh "cd /home/Desktop/Projects/simple-python-pyinstaller-app"
                 sh "pwd"
                 sh "ls -al"
                 sh "python3 sources/test_calc.py"
@@ -13,7 +13,8 @@ node {
         }
 
         stage("Deploy") {
-            echo "Not yet Implemented"
+            sh "echo Not yet Implemented"
+            sh "pwd"
         }
     }
 }
