@@ -1,6 +1,11 @@
 node {
     stage("Build & Test") {
-        python3 sources/test_calc.py
+        try {
+            sh "python3 sources/test_calc.py"
+        } catch {
+            echo "Error occurred during Build & Test: ${e.getMessage()}"
+            error("Build & Test stage failed.")
+        }
     }
 
     stage("Deploy") {
