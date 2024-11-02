@@ -11,8 +11,12 @@ node {
         }
 
         stage("Deploy") {
-            sh "echo Not yet Implemented"
-            sh "pwd"
+            input {
+                message "Lanjut deploy app?"
+                ok "Deploy"
+            }
+            echo "Wait 1 Minutes"
+            sleep(time 1, unit: "MINUTES")
         }
     }
 }
