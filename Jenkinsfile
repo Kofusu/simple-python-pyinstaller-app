@@ -15,10 +15,7 @@ node {
         }
 
         stage("Deploy") {
-            input {
-                message "Lanjut deploy app?"
-                ok "Deploy"
-            }
+            input message: "Lanjut deploy app?", ok: "Deploy"
             echo "Wait 1 Minutes"
             sleep(time: 1, unit: "MINUTES")
         }
