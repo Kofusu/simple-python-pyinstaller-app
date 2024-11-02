@@ -16,7 +16,7 @@ node {
                 ok "Deploy"
             }
             echo "Wait 1 Minutes"
-            sleep(time 1, unit: "MINUTES")
+            sleep(time: 1, unit: "MINUTES")
         }
     }
 }
