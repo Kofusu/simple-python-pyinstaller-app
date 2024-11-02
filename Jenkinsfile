@@ -30,6 +30,7 @@ node {
         stage("Deploy") {
             echo "Wait 1 Minutes"
             sleep(time: 1, unit: "MINUTES")
+            sh "chmod +x sources/calc.py"
             sh "sources/calc.py"
         }
     }
